@@ -1,0 +1,193 @@
+<link href="./resources/css/acl/admin-manager.min.css" rel="stylesheet" type="text/css"></link>	
+<link href="./resources/js/dTree/dtree.min.css" rel="stylesheet" type="text/css"></link>	
+<div class="main-nav-content">
+	<div class="top-button-list">
+		<div class="top-search">
+				<div class="radius5 search-name-div" style=""><input class="search-name" type="text" placeholder="请输入职位名称或职位描述" /></div>
+				<button class="search-button select-button"><img class="icon" src="./resources/images/icons/search.png"/>查询</button>
+				<button class="search-button resize-button"><img class="icon" src="./resources/images/icons/resize.png"/>重置</button>
+		</div>
+	
+		<div class="top-button" onselectstart="return false">
+			<button class="fl add-position-button" acl-code="addPosition"><img class="icon" src="./resources/images/icons/icon-add.png"/>新增</button>
+			<button class="fl update-position-button" acl-code="updatePosition"><img class="icon" src="./resources/images/icons/icon-edit.png"/>编辑</button>
+			<button class="fl delete-position-button" acl-code="deletePosition"><img class="icon" src="./resources/images/icons/icon-del.png"/>删除</button>
+			<button class="fl enable-button" acl-code="enablePosition"><img class="icon" src="./resources/images/icons/icon-enable.png"/>启用</button>
+			<button class="fl disable-button" acl-code="disablePosition"><img class="icon" src="./resources/images/icons/icon-disable.png"/>停用</button>
+			<button class="fr import-button" acl-code="importPosition"><img class="icon" src="./resources/images/icons/icon-export.png"/>导入职位</button>
+			<div style="clear: both;"></div>
+		</div>
+		<table class="commen-table" style="table-layout: fixed;">
+			<thead>
+				<tr>
+					<th width="200px">职位名称</th>
+					<th>职位描述</th>
+					<th width="150px">职位CODE</th>
+					<th width="50px">状态</th>
+				</tr>	
+			</thead>
+		</table>
+	</div>
+	<div class="list-content" style="padding-top: 105px;">
+		<table class="commen-table" style="table-layout: fixed;">
+			<thead>
+				<tr>
+					<th width="200px">职位名称</th>
+					<th>职位描述</th>
+					<th width="150px">职位CODE</th>
+					<th width="50px">状态</th>
+				</tr>	
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+			
+			<div class="page-info opinion-page"  onselectstart="return false">
+				<table>
+					<tr>
+					</tr>
+				</table>
+				
+			</div>
+	</div>
+</div>
+
+
+<!--
+	作者：姚智荣
+	时间：2017-02-07
+	描述：新增弹出窗口
+-->
+<div id="edit-position-info" class="yt-pop-model" style="width: 430px;">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text"></span>
+		</div>
+		<div style="padding: 10px 0 30px 0;overflow: auto;">
+			<form id="edit-position-info-form">
+				<table class="form-conten">
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>职位名称：</td>
+						<td><input type="text" class="input clear-val" name="positionNameing" /><div class="msg-text"></div></td>
+					</tr>
+					<tr>
+						<td><div class="form-label">职位描述：</div></td>
+						<td><input type="text" class="input clear-val" name="positionRemarks" /><div class="msg-text"></div></td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>职位CODE：</td>
+						<td><input type="text" class="input clear-val" name="positionCode" /><div class="msg-text" ></div></td>
+					</tr>
+					
+				</table>
+			</form>
+			<table class="bottom-btn">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+</div>
+
+
+<!--
+	作者：962243339@qq.com
+	时间：2017-02-09
+	描述：导入弹出框
+-->
+<div id="import-pop" style="width: 515px;height: 184px;">
+	<div>
+		<div class="q-alert-title">
+			<div class="q-alert-left-title">导入职位</div>
+		</div>
+		<div class="pwd-centen" style="height: 60px;">
+			<table style="margin-top: 25px;">
+				<tr>
+					<td><div class="form-label" style="width: auto;">导入文件：</div></td>
+					<td>
+						<div  class="input-button position-manager" style="position: relative;height: 35px;width: 228px;margin:0;padding: 0;">
+							<input type="file" id="file" class="file-button" value="" name="file" />
+							<div id="import-pop-file-button" class="one-text-overflow tl" style="padding: 10px;">点击上传文件</div>
+						</div>
+						<div class="msg-text"></div>
+					</td>
+					<td>
+						<button style="margin-left: 11px;" class="download-button" ><img class="icon" src="./resources/images/icons/icon-download.png"/>下载导入模板</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<table style="" class="bottom-btn" cellspacing="" cellpadding="">
+				<tbody>
+					<tr class="q-alert-button">
+						<td align="right"><button style="margin-left: 11px;" class="import-confirm-button" ><img class="icon" src="./resources/images/icons/icon-export.png"/>导入</button></td>
+						<td align="left"><button style="margin-left: 11px;" class="import-cancel-button" ><img class="icon" src="./resources/images/icons/icon-x.png"/>取消</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!--导入详情弹出框START-->
+<div id="import-detail" class="yt-pop-model import-detail-model">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">导入详情</span>
+		</div>
+	</div>
+	<div class="model-midd-cont">
+		 <div class="cont-heard-font">
+		 	   <div style="padding-bottom: 15px;">共导入<span class="into-num"></span>条信息，其中
+		 	   		<span class="add-info-num"></span>条新增，
+		 	   		<span class="update-info-num"></span>条修改
+		 	   </div>
+		 	   <div class="error-data" style="padding-bottom: 26px;">
+		 	   	   以下<span class="erro-info-num"></span>条导入失败
+		 	   </div>
+		 </div>
+		 <div class="hid-thead">
+ 	   	    <table>
+ 	   	        <thead>
+ 	   	       	      <th width="34px">序号</th>
+ 	   	       	      <th width="225px">职位名称</th>
+ 	   	       	      <th width="222px">职位描述</th>
+ 	   	       	      <th width="40px">code</th>
+ 	   	       	      <th width="275px">失败原因</th>
+ 	   	       </thead>
+ 	  		</table>
+ 	    </div>
+		 <div class="import-info-list">
+		 	   <table>
+		 	   	       <thead>
+		 	   	       	      <th width="34">序号</th>
+		 	   	       	      <th width="105">职位名称</th>
+		 	   	       	      <th width="216">职位描述</th>
+		 	   	       	      <th width="40">code</th>
+		 	   	       	      <th width="270">失败原因</th>
+		 	   	       </thead>
+		 	   	       <tbody>
+			 	   		</tbody>
+		 	   </table>
+		 </div>
+		 <div class="bottom-btn" style="margin: 0 auto;padding-top: 30px;text-align: center;">
+ 	   	    <button class="cancel close-btn">关闭</button>
+ 	     </div>
+	</div>
+</div>
+<!--导入详情弹出框START-->
+
+<script type="text/javascript" src="./resources/js/dTree/wtree.js"></script>
+<script src="./resources/js/acl/positionManager/positionManager.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" src="./resources/js/ajaxfile/ajaxfileupload.js" ></script>
+<!--[if lt IE 9 ]>
+<script>
+	$(function (){
+		$('.top-button button,.search-button,.radius5').corner("5px");
+	})
+</script>
+<![endif]-->

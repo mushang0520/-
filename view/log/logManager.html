@@ -1,0 +1,134 @@
+<link href="./resources/css/acl/admin-manager.min.css" rel="stylesheet" type="text/css"></link>	
+<link href="./resources/js/dTree/dtree.min.css" rel="stylesheet" type="text/css"></link>
+<div class="log-list">
+	<div class="main-nav-content">
+		<div class="top-button-list">
+			<div class="top-search">
+				<input class="Wdate log-time" id="start-time" type="text" onClick="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd HH:mm',maxDate:'#F{$dp.$D(\'end-time\')}'})" placeholder="开始时间" />
+				<div style="margin: 3px 7px;height: 1px;border-top:1px solid #999999;display: inline-block;width: 10px;"></div>
+				<input class="Wdate log-time" type="text" id="end-time" onClick="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd HH:mm',minDate:'#F{$dp.$D(\'start-time\')}'})" placeholder="结束时间"/>
+				<button class="search-button select-button"><img class="icon" src="./resources/images/icons/search.png"/>查询</button>
+				<button class="search-button resize-button"><img class="icon" src="./resources/images/icons/resize.png"/>重置</button>
+			</div>
+			<table class="commen-table" style="table-layout: fixed;">
+				<thead>
+					<tr>
+						<th width="150px">操作人</th>
+						<th width="140px">操作时间</div></th>
+						<th width="140px">登录IP</div></th>
+						<th width="140px">登录PC</div></th>
+						<th>操作内容</div></th>
+						<th width="50px">操作</th>
+					</tr>	
+				</thead>
+				</table>
+		</div>
+		<div class="list-content" style="padding-top: 50px;">
+			<table class="commen-table" style="table-layout: fixed;">
+				<thead>
+					<tr>
+						<th width="150px">操作人</th>
+						<th width="140px">操作时间</div></th>
+						<th width="140px">登录IP</div></th>
+						<th width="140px">登录PC</div></th>
+						<th>操作内容</div></th>
+						<th width="50px">操作</th>
+					</tr>	
+				</thead>
+				<tbody>
+					<!--<tr>      
+						<td>zhangchengjun</td>
+						<td>张成俊</td>
+						<td>中科倚天</td>
+						<td>研发部</td>
+						<td>项目经理</td>
+						<td>zhangchengjun@yitiangroup.com</td>
+						<td>15235698562</td>
+						<td><span class="enable">启用</span></td>
+					</tr>
+					-->
+					
+				</tbody>
+			</table>
+				
+				<div class="page-info opinion-page"  onselectstart="return false">
+					<table>
+						<tr>
+							<!--<td>总计：28条信息</td>
+							<td><div class="frist-page">首页</div></td>
+							<td><div class="last-page pointer">上一页</div></td>
+							<td><div class="num-text active">1</div></td>
+							<td><div class="num-text">2</div></td>
+							<td><div class="num-text">3</div></td>
+							<td><div class="num-text">4</div></td>
+							<td><div class="">···</div></td>
+							<td><div class="num-text">16</div></td>
+							<td><div class="next-page pointer">下一页</div></td>
+							<td><div class="end-page">尾页</div></td>-->
+						</tr>
+					</table>
+					
+				</div>
+		</div>
+	</div>
+</div>
+<div class="log-info" style="display: none;">
+	<div class="main-nav-content">
+		<div class="log-info-content">
+			<table>
+				<tr class="even">
+					<td><div class="log-info-lable">操作者</div></td>
+					<td><div class="log-info-details"></div></td>
+				</tr>
+				<tr>
+					<td><div class="log-info-lable">操作时间</div></td>
+					<td><div class="log-info-details"></div></td>
+				</tr>
+				<tr class="even">
+					<td><div class="log-info-lable">登录IP</div></td>
+					<td><div class="log-info-details"></div></td>
+				</tr>
+				<tr>
+					<td><div class="log-info-lable">主机名称</div></td>
+					<td><div class="log-info-details"></div></td>
+				</tr>
+				<tr class="even">
+					<td><div class="log-info-lable">操作内容</div></td>
+					<td><div class="log-info-details"></div></td>
+				</tr>
+				<tr>
+					<td><div class="log-info-lable">系统模块</div></td>
+					<td><div class="log-info-details"></div></td>
+				</tr>
+				<tr class="even">
+					<td><div class="log-info-lable">操作状态</div></td>
+					<td><div class="log-info-details"></div></td>
+				</tr>
+				<tr>
+					<td><div class="log-info-lable">请求参数</div></td>
+					<td><div class="log-info-details"></div></td>
+				</tr>
+			</table>
+			<div style="text-align: center;margin-top: 15px;">
+				<button class="search-button back-button" style="padding: 0 15px;">返&nbsp;&nbsp;回</button>	
+			</div>
+			
+		</div>
+	</div>
+	
+</div>
+
+
+
+<script language="javascript" type="text/javascript" src="./resources/js/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="./resources/js/dTree/wtree.js"></script>
+<script src="./resources/js/acl/logManager/logManager.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" src="./resources/js/ajaxfile/ajaxfileupload.min.js" ></script>
+<!--[if lt IE 9 ]>
+<script>
+	$(function (){
+		$('.top-button button,.search-button,.radius5').corner("5px");
+	})
+</script>
+<![endif]-->

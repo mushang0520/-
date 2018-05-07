@@ -1,0 +1,48 @@
+/*--------------------------------------------------|
+| dTree 2.05 | www.destroydrop.com/javascript/tree/ |
+|---------------------------------------------------|
+| Copyright (c) 2002-2003 Geir Landr?              |
+|--------------------------------------------------*/
+
+.dtree {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #333;
+	white-space: nowrap;
+	text-align: left;
+	padding-top: 5px;
+}
+.dtree img {
+	border: 0px;
+	vertical-align: middle;
+	margin-right: 4px;
+	margin-bottom: 2px;
+}
+.dtree a {
+	color: #333;
+	text-decoration: none;
+}
+.dtree a.node{
+	white-space: nowrap;
+	padding: 1px 2px 1px 2px;
+}
+.dtree a.node:hover{
+	color: #333;
+	text-decoration: underline;
+}
+.dtree div.nodeSel {
+	background-color: #BEDAFF;
+}
+.dtree .clip {
+	overflow: hidden;
+	text-align: left;
+	padding-left: 20px;
+}
+.cx{
+	line-height:12px;
+	padding:0px; 
+	margin:0px;
+	width:12px;
+	height:12px;
+	vertical-align:middle;
+}

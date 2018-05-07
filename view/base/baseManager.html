@@ -1,0 +1,68 @@
+<link href="./resources/css/acl/admin-manager.min.css" rel="stylesheet" type="text/css"></link>	
+<div class="main-nav-content">
+	<div class="base-info-content">
+		<form id="base-form">
+			<table class="">
+				<tr>
+					<td><div class="base-info-lable">LOGO：</div></td>
+					<td>
+						<div class="base-info-details">
+							<input type="text" class="input" readonly="readonly" name="logoPath" /><input type="button" class="base-upload" value="上传"/><input type="file" name="file" id="file" class="file-button"/><span>仅支持JPG、PNG文件，不超过500Kb，比例为150*60</span>
+							<div class="msg-text" ></div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td><div class="base-info-lable"></div></td>
+					<td>
+						<div class="base-info-details" style="height: 60px;line-height: 60px;padding: 24px 0px;">
+						预览：<img class="logo-img" src="./resources/images/defoult-img.png" alt="" width="150px" height="60px" style="position: absolute;"/>
+						<div class="msg-text" ></div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td><div class="base-info-lable">系统名称：</div></td>
+					<td><div class="base-info-details"><input type="text" class="input" name="systemName" /><div class="msg-text" ></div></div></td>
+				</tr>
+				<tr>
+					<td><div class="base-info-lable">人员初始密码：</div></td>
+					<td><div class="base-info-details"><input type="text" class="input" name="userDefaultPass" /><div class="msg-text" ></div><span>初始密码只对新增用户有效，现有人员密码不受影响</span></div></td>
+				</tr>
+				<tr>
+					<td><div class="base-info-lable">新增人员默认邮箱：</div></td>
+					<td><div class="base-info-details"><input type="text" class="input" name="userDefaultEmail" /><div class="msg-text" ></div><span>默认邮箱只对新增用户有效，现有人员不受影响</span></div></td>
+				</tr>
+				<tr>
+					<td><div class="base-info-lable">人员重复登陆：</div></td>
+					<td>
+						<div class="base-info-details">
+							<label class="check-label yt-radio check"><input checked="checked" id="isEnndSign" type="radio" name="isEnndSign" value="Y">已登录用户弹出通知</label>
+							<label class="check-label yt-radio"><input id="enndSign" type="radio" name="isEnndSign" value="N">强制退出已登录用户，并弹出通知</label>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<table class="bottom-btn">
+			<tr>
+				<td><button class="confirm">保存</button></td>
+			</tr>
+		</table>
+	</div>
+</div>
+	
+
+
+
+<script src="./resources/js/acl/baseManager/baseManager.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" src="./resources/js/ajaxfile/ajaxfileupload.min.js" ></script>
+<!--[if lt IE 9 ]>
+<script>
+	$(function (){
+		$('.top-button button,.search-button,.radius5').corner("5px");
+		$('.base-upload').corner("3px");
+	})
+</script>
+<![endif]-->

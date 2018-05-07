@@ -1,0 +1,371 @@
+<link href="./resources/css/acl/admin-manager.min.css" rel="stylesheet" type="text/css"></link>	
+<link href="./resources/js/dTree/dtree.min.css" rel="stylesheet" type="text/css"></link>	
+<link rel="stylesheet" type="text/css" href="./resources/js/easyuiTree/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="./resources/js/easyuiTree/themes/icon.css">
+<div class="main-nav-content user-manger">
+		
+	<div class="top-button-list">
+		<div class="top-search">
+			<div class="radius5 search-name-div" style=""><input class="search-name" type="text" placeholder="请输入用户名或姓名" /></div>
+			<button class="search-button select-button"><img class="icon" src="./resources/images/icons/search.png"/>查询</button>
+			<button class="search-button resize-button"><img class="icon" src="./resources/images/icons/resize.png"/>重置</button>
+		</div>
+		<div class="top-button" onselectstart="return false">
+			<button class="fl add-user-button" acl-code="addUser"><img class="icon" src="./resources/images/icons/icon-add.png"/>新增</button>
+			<button class="fl update-user-button" acl-code="updateUser"><img class="icon" src="./resources/images/icons/icon-edit.png"/>编辑</button>
+			<button class="fl delete-user-button" acl-code="deleteUser"><img class="icon" src="./resources/images/icons/icon-del.png"/>删除</button>
+			<button class="fl update-pwd-button" acl-code="updatePwd"><img class="icon" src="./resources/images/icons/icon-resize-pwd.png"/>重置密码</button>
+			<button class="fl set-user-name" acl-code="setUserName" style="display:none ;"><img class="icon" src="./resources/images/icons/set-admin-cion.png"/>设置用户名</button>
+			<button class="fl set-user-button" acl-code="setRole"><img class="icon" src="./resources/images/icons/icon-set-role.png"/>分配角色</button>
+			<button class="fl enable-button" acl-code="enableUser"><img class="icon" src="./resources/images/icons/icon-enable.png"/>启用</button>
+			<button class="fl disable-button" acl-code="disableUser"><img class="icon" src="./resources/images/icons/icon-disable.png"/>停用</button>
+			<!--<button class="fr import-button" acl-code="importUser"><img class="icon" src="./resources/images/icons/icon-export.png"/>批量导入</button>-->
+			<div style="clear: both;"></div>
+		</div>
+	</div>
+	<div class="user-hid-theard" style="width: 815px;position: absolute;top: 195px;z-index: 10;margin-left: 215px;">
+			<table class="commen-table" style="width: 808px;float: right;">
+				<thead>
+					<tr>
+						<th><div style="width: 107px;">用户名</div></th>
+						<th><div style="width: 51px;">姓名</div></th>
+						<th><div style="width: 200px;">公司</div></th>
+						<th><div style="width: 76px;">部门</div></th>
+						<th><div style="width: 81px;">职位</div></th>
+						<th><div style="width: 238px;">邮箱</div></th>
+						<th><div style="width: 38px;">状态</div></th>
+					</tr>	
+				</thead>
+			</table>
+		</div>
+	<div style="clear: both;"></div>
+	<div class="user-midd-cont">
+			  <div class="left-tree-show">
+			  	    <div class="tree-info">
+			  	    	<div class="tree-dept-info" id="leftTree">
+							  <ul id="dept-tree"></ul>	
+						</div>
+			  	    </div>
+			  </div>
+			  <!--列表数据START-->
+			  <div class="user-info-list" style="width: 802px;float: right;margin-right: 6px;">
+			  	     <div class="list-content" style="min-height: 447px;">
+						<table class="commen-table" style="width: 807px;">
+							<thead>
+								<tr>
+									<th><div style="width: 107px;">用户名</div></th>
+									<th><div style="width: 51px;">姓名</div></th>
+									<th><div style="width: 200px;">公司</div></th>
+									<th><div style="width: 76px;">部门</div></th>
+									<th><div style="width: 81px;">职位</div></th>
+									<th><div style="width: 237px;">邮箱</div></th>
+									<th><div style="width: 38px;">状态</div></th>
+								</tr>	
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+							<div class="page-info opinion-page"  onselectstart="return false">
+								<table>
+									<tr>
+									</tr>
+								</table>
+							</div>
+					</div>
+			  </div>
+			  <!--列表数据END-->
+			  <div style="clear: both;"></div>
+	</div>
+	
+</div>
+<div id="set-username-model" class="yt-pop-model" style="width: 305px;">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">设置用户名</span>
+		</div>
+		<div style="padding: 20px 0 30px 0;overflow: auto;">
+			 <table class="user-name-tab">
+			 	     <tr>
+			 	     	 <td align="right"><label>姓名：</label></td>
+			 	     	 <td><span class="user-name-span"></span></td>
+			 	     </tr>
+			 	     <tr>
+			 	     	 <td align="right"><label>用户名：</label></td>
+			 	     	 <td style="padding-bottom: 0px;">
+			 	     	 	 <input class="set-user-name-inpu" type="text" placeholder="请输入用户名"/>
+			 	     	 	 <div class="msg-text" style="top: 38px;"></div>
+			 	     	 </td>
+			 	     </tr>
+			 </table>
+			 <table class="bottom-btn" style="margin-top: 30px;">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>	
+    </div>
+</div>
+<!--导入详情弹出框START-->
+<div id="import-detail" class="yt-pop-model import-detail-model">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">导入详情</span>
+		</div>
+	</div>
+	<div class="model-midd-cont">
+		 <div class="cont-heard-font">
+		 	   <div style="padding-bottom: 15px;">共导入<span class="into-num"></span>条信息，其中
+		 	   		<span class="add-info-num"></span>条新增，
+		 	   		<span class="update-info-num"></span>条修改
+		 	   </div>
+		 	   <div class="error-data" style="padding-bottom: 26px;">
+		 	   	   以下<span class="erro-info-num"></span>条导入失败
+		 	   </div>
+		 </div>
+		 <div class="hid-thead">
+ 	   	    <table>
+ 	   	        <thead>
+ 	   	       	       <th width="50">序号</th>
+ 	   	       	      <th width="178">用户名</th>
+ 	   	       	      <th width="178">姓名</th>
+ 	   	       	      <th width="216">公司</th>
+ 	   	       	      <th width="178">部门</th>
+ 	   	       	      <th width="178">职位</th>
+ 	   	       	      <th width="270">失败原因</th>
+ 	   	       </thead>
+ 	  		</table>
+ 	    </div>
+		 <div class="import-info-list">
+		 	   <table>
+		 	   	       <thead>
+		 	   	       	      <th width="50">序号</th>
+		 	   	       	      <th width="178">用户名</th>
+		 	   	       	      <th width="178">姓名</th>
+		 	   	       	      <th width="216">公司</th>
+		 	   	       	      <th width="178">部门</th>
+		 	   	       	      <th width="178">职位</th>
+		 	   	       	      <th width="270">失败原因</th>
+		 	   	       </thead>
+		 	   	       <tbody>
+			 	   		</tbody>
+		 	   </table>
+		 </div>
+		 <div class="bottom-btn" style="margin: 0 auto;padding-top: 30px;text-align: center;">
+ 	   	    <button class="cancel close-btn">关闭</button>
+ 	     </div>
+	</div>
+</div>
+<!--导入详情弹出框START-->
+<!--
+	作者：姚智荣
+	时间：2017-02-07
+	描述：新增弹出窗口
+-->
+<div id="edit-user-info" class="yt-pop-model" style="width: 430px;">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">人员信息</span>
+		</div>
+		<div style="padding: 10px 0 30px 0;overflow: auto;">
+			<form id="edit-user-info-form">
+				<table class="form-conten">
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>用户名：</td>
+						<td><input type="text" class="input user-itcode clear-val" name="userItcode" /><div class="msg-text"></div></td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>姓名：</td>
+						<td><input type="text" class="input user-real-name clear-val" name="userName" /><div class="msg-text"></div></td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>手机号：</td>
+						<td><input type="text" class="input user-phone clear-val" name="userPhone" /><div class="msg-text" ></div></td>
+					</tr>
+					<tr>
+						<td><div class="form-label">邮箱：</div></td>
+						<td><div class="user-email clear-html" style="line-height: 36px;height: 36px;"></div><div class="msg-text"></div></td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>部门：</td>
+						<td>
+							
+							<div class="input-button dept-manager select-button" style="position: relative;">
+								<input type="hidden" class="dept-hinput clear-val" value="" name="dept" />
+								
+								<div class="dept-pop-model-button show_hide_div clear-html" >点击选择部门</div>
+								<div class="dept-pop-model hide_div" id="showTreearea" >
+									
+								</div>
+							</div>
+							<div class="msg-text"></div>
+						</td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>职位：</td>
+						<td>
+							<div class="input-button group-manager select-button">
+								<input type="hidden" class="group-hinput  clear-val" value="" name="group" />
+								<div class="group-pop-model-button show_hide_div  clear-html">点击选择职位</div>
+								<div class="group-pop-model hide_div" >
+									
+									<input type="text" class="group-search" value="" />
+									
+									<ul>
+										<li>总经理</li>
+										<li>副总</li>
+										<li>经理</li>
+										<li>职员</li>
+									</ul>
+								</div>
+							</div>
+							<div class="msg-text"></div>
+						</td>
+					</tr>
+					<tr>
+						<td><div class="form-label">兼职信息：</div></td>
+						<td><div class="add-job">新增</div></td>
+					</tr>
+					<tr class="job-list-bottom"><td></td><td></td></tr>
+				</table>
+			</form>
+			<table class="bottom-btn">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+</div>
+
+<div id="set-user-role" class="yt-pop-model set-user-role">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">分配角色</span>
+		</div>
+		<div style="padding: 10px 0 30px 0;overflow: auto;">
+			<table>
+				<tr>
+					<td>
+						<p>全部</p>
+						<div class="role-left-list" onselectstart="return false">
+							<ul>
+							</ul>
+						</div>
+					</td>
+					<td width="1">
+						<div class="set-role-button">
+							<ul>
+								<li><button class="d-right"></button></li>
+								<li><button class="right"></button></li>
+								<li><button class="d-left"></button></li>
+								<li><button class="left"></button></li>
+							</ul>
+						</div>
+					</td>
+					<td>
+						<p>已选</p>
+						<div class="role-right-list" onselectstart="return false">
+							<ul>
+							</ul>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="bottom-btn">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>	
+</div>
+
+
+<!--
+	作者：962243339@qq.com
+	时间：2017-02-08
+	描述：修改密码
+-->
+<div id="resite-pwd" style="">
+	<div>
+		<div class="q-alert-title">
+			<div class="q-alert-left-title">重置密码</div>
+		</div>
+		<div class="pwd-centen">
+			<p style="line-height: 75px;font-size: 16px;text-align: center;">重置此用户密码为初始密码</p>
+			<p style="font-size: 14px; text-align: center;">并向用户邮箱发送通知邮件?</p>
+		</div>
+		<div>
+			<table style="" cellspacing="" cellpadding="">
+				<tbody>
+					<tr class="q-alert-button">
+						<td align="right"><input class="alert-left-button" type="button" name="" id="" value="确定"></td>
+						<td align="left"><input type="button" class="alert-right-button" name="" id="" value="取消"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+</div>
+
+
+<!--
+	作者：962243339@qq.com
+	时间：2017-02-09
+	描述：导入弹出框
+-->
+
+<div id="import-pop" style="width: 514px;height: 184px;">
+	<div>
+		<div class="q-alert-title">
+			<div class="q-alert-left-title">导入人员</div>
+		</div>
+		<div class="pwd-centen" style="height: 60px;">
+			<table style="margin-top: 25px;">
+				<tr>
+					<td><div class="form-label" style="width: auto;">导入文件：</div></td>
+					<td>
+						<div  class="input-button group-manager" style="position: relative;height: 36px;width: 250px;margin:0;padding: 0;">
+							<input type="file" id="file" class="file-button" value="" name="file" />
+							<div id="import-pop-file-button" class="one-text-overflow tl" style="padding: 10px;">点击上传文件</div>
+						</div>
+						<div class="msg-text"></div>
+					</td>
+					<td>
+						<button style="margin-left: 11px;" class="download-button radius5" ><img class="icon" src="./resources/images/icons/icon-download.png"/>下载导入模板</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<table style="" class="bottom-btn" cellspacing="" cellpadding="">
+				<tbody>
+					<tr class="q-alert-button">
+						<td align="right"><button style="margin-left: 11px;" class="import-confirm-button radius5" ><img class="icon" src="./resources/images/icons/icon-export.png"/>导入</button></td>
+						<td align="left"><button style="margin-left: 11px;" class="import-cancel-button radius5" ><img class="icon" src="./resources/images/icons/icon-x.png"/>取消</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+</div>
+
+
+<script type="text/javascript" src="./resources/js/dTree/wtree.js"></script>
+<script type="text/javascript" src="./resources/js/easyuiTree/jquery.easyui.min.js"></script>
+<script src="./resources/js/acl/userManager/userManager.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" src="./resources/js/ajaxfile/ajaxfileupload.min.js" ></script>
+<!--[if lt IE 9 ]>
+<script>
+	$(function (){
+		$('.top-button button,.search-button,.radius5').corner("5px");
+	})
+</script>
+<![endif]-->

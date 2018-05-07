@@ -1,0 +1,21 @@
+.file-button{
+	display: block;
+	position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 59px;
+    width: 246px;
+    height: 31px;
+    border: 1px solid;
+    overflow: hidden;
+    opacity: 0;filter: alpha(opacity=0);
+}
+.nice-select:after{
+	border: none;
+	width: 12px;
+	height: 7px;
+	background: url(../images/icons/select-down.png) no-repeat;
+}
+.nice-select.open:after{
+	background: url(../images/icons/select-up.png) no-repeat;
+}

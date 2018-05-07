@@ -1,0 +1,227 @@
+<link href="./resources/css/acl/admin-manager.min.css" rel="stylesheet" type="text/css"></link>	
+<link href="./resources/js/dTree/dtree.min.css" rel="stylesheet" type="text/css"></link>
+<link rel="stylesheet" type="text/css" href="./resources/js/easyuiTree/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="./resources/js/easyuiTree/themes/icon.css">
+<div class="main-nav-content">
+	<div class="top-button-list">
+		<div class="top-button" onselectstart="return false">
+			<button class="fl add-system-button" acl-code="addSystem"><img class="icon" src="./resources/images/icons/icon-add.png"/>新增</button>
+			<button class="fl update-system-button" acl-code="updateSystem"><img class="icon" src="./resources/images/icons/icon-edit.png"/>编辑</button>
+			<button class="fl delete-system-button" acl-code="deleteSystem"><img class="icon" src="./resources/images/icons/icon-del.png"/>删除</button>
+			<button class="fl set-user-button" acl-code="setAdmin"><img class="icon" src="./resources/images/icons/icon-set.png"/>指派管理员</button>
+			<button class="fl reset-code" acl-code="resetCode"><img class="icon" src="./resources/images/icons/icon-resize-pwd.png"/>重置编码</button>
+			<div style="clear: both;"></div>
+		</div>
+		<table class="commen-table">
+			<thead>
+				<tr>
+					<th><div style="width: 200px;">系统编码</div></th>
+					<th><div style="width: 200px;">系统名称</div></th>
+					<th><div style="width: 626px;">系统登录地址</div></th>
+				</tr>	
+			</thead>
+		</table>
+	</div>
+	<div class="list-content" style="padding-top: 56px;">
+		<table class="commen-table">
+			<thead>
+				<tr>
+					<th><div style="width: 200px;">系统编码</div></th>
+					<th><div style="width: 200px;">系统名称</div></th>
+					<th><div style="width: 626px;">系统登录地址</div></th>
+				</tr>	
+			</thead>
+			<tbody>
+				
+				
+			</tbody>
+		</table>
+			
+			<div class="page-info opinion-page"  onselectstart="return false">
+				<table>
+					<tr>
+						
+					</tr>
+				</table>
+				
+			</div>
+	</div>
+</div>
+
+
+<!--
+	作者：姚智荣
+	时间：2017-02-07
+	描述：新增弹出窗口
+-->
+<div id="edit-system-info" class="yt-pop-model" style="width: 430px;">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text"></span>
+		</div>
+		<div style="padding: 10px 0 30px 0;overflow: auto;">
+			<form id="edit-system-info-form">
+				<table class="form-conten">
+					<tr class="system-code">
+						<td><div class="form-label">系统编码：</div></td>
+						<td><div class="clear-html" style="line-height: 36px;height: 36px;"></div></td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>系统名称：</td>
+						<td><input type="text" class="input system-real-name clear-val" name="systemName" /><div class="msg-text"></div></td>
+					</tr>
+					<!--<tr>-->
+						<!--<td align="right"><sub class="valid-flag">*</sub>系统地址：</td>-->
+						<!--<td><input type="text" class="input clear-val" name="systemIndex" /><div class="msg-text" ></div></td>-->
+					<!--</tr>-->
+					<!--<tr>-->
+						<!--<td align="right"><sub class="valid-flag">*</sub>系统登录地址：</td>-->
+						<!--<td><input type="text" class="input clear-val" name="systemLogin" /><div class="msg-text" ></div></td>-->
+					<!--</tr>-->
+					
+				</table>
+			</form>
+			<table class="bottom-btn">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+</div>
+<!--设置管理员弹出框START-->
+<div id="set-admin-model" class="yt-pop-model set-admin-model" style="width: 490px;height: 688px;">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">指派管理员</span>
+		</div>
+		<div style="padding: 20px 15px 35px 15px;overflow: auto;">
+			 <div class="input-search">
+				<input type="text" class="model-search-inpu set-admin-inpu" placeholder="请输入姓名"/>
+				<button class="model-new-btn model-search-btn">
+					查询
+				</button>
+			</div>
+			<div style="padding-bottom: 8px;width: 460px;">
+				<div style="width: 230px;"></div>
+				<div style="width: 188px;text-align: left;float: right;">
+					<p>已选</p>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+			<table>
+				<tr>
+					<td>
+						<div class="left-show-tree"  onselectstart="return false">
+							 <ul id="user-tree"></ul>
+						</div>
+					</td>
+					<td width="85" align="center">
+						<div class="set-role-button">
+							<ul>
+								<li><button class="right"></button></li>
+								<li><button class="left"style="margin-top: 40px;"></button></li>
+								<li><button class="d-left"  style="margin-bottom: 0px;margin-top: 40px;"></button></li>
+							</ul>
+						</div>
+					</td>
+					<td>
+						<div class="right-user-data" onselectstart="return false">
+							<ul></ul>
+						</div>
+					</td>
+				</tr>
+			</table>
+			  <table class="bottom-btn" style="margin-top: 30px;">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<!--设置管理员弹出框END-->
+<div id="set-user" class="yt-pop-model set-user-role">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">分配角色</span>
+		</div>
+		<div style="padding: 10px 0 30px 0;overflow: auto;">
+			<table>
+				<tr>
+					<td>
+						<p>全部</p>
+						<div class="role-left-list" onselectstart="return false">
+							<div class="input-search">
+								<input type="text" />
+							</div>
+							<ul>
+							</ul>
+						</div>
+					</td>
+					<td width="1">
+						<div class="set-role-button">
+							<ul>
+								<li><button class="d-right"></button></li>
+								<li><button class="right"></button></li>
+								<li><button class="d-left"></button></li>
+								<li><button class="left"></button></li>
+							</ul>
+						</div>
+					</td>
+					<td>
+						<p>已选</p>
+						<div class="role-right-list" onselectstart="return false">
+							<ul>
+							</ul>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="bottom-btn">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>	
+</div>
+
+
+
+<div id="set-menu" class="yt-pop-model">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">分配权限</span>
+		</div>
+		<div style="padding:0 0 20px 0">
+			<div id="dtree" style="height: 400px;overflow: auto;padding: 0 35px;">
+				
+			</div>
+			<table class="bottom-btn">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>	
+</div>
+
+
+<script type="text/javascript" src="./resources/js/dTree/wtree.js"></script>
+<script type="text/javascript" src="./resources/js/easyuiTree/jquery.easyui.min.js"></script>
+<script src="./resources/js/acl/systemManager/systemManager.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" src="./resources/js/ajaxfile/ajaxfileupload.min.js" ></script>
+<!--[if lt IE 9 ]>
+<script>
+	$(function (){
+		$('.top-button button,.search-button,.radius5').corner("5px");
+	})
+</script>
+<![endif]-->

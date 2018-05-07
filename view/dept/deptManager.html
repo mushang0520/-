@@ -1,0 +1,324 @@
+<link href="./resources/css/acl/admin-manager.min.css" rel="stylesheet" type="text/css"></link>	
+<link rel="stylesheet" href="./resources/css/TreeGridManage.min.css" type="text/css"></link>
+<link href="./resources/js/dTree/dtree.min.css" rel="stylesheet" type="text/css"></link>
+<link rel="stylesheet" type="text/css" href="./resources/js/easyuiTree/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="./resources/js/easyuiTree/themes/icon.css">
+<style type="text/css">
+	
+</style>
+<div class="main-nav-content">
+	<div class="top-button-list">
+		<div class="top-button" onselectstart="return false">
+			<button class="fl add-button" acl-code="addDept"><img class="icon" src="./resources/images/icons/icon-add.png"/>新增</button>
+			<button class="fl update-button" acl-code="updateDept"><img class="icon" src="./resources/images/icons/icon-edit.png"/>编辑</button>
+			<button class="fl delete-button" acl-code="deleteDept"><img class="icon" src="./resources/images/icons/icon-del.png"/>删除</button>
+			<button class="fl enable-button" acl-code="enableDept"><img class="icon" src="./resources/images/icons/icon-enable.png"/>启用</button>
+			<button class="fl disable-button" acl-code="disableDept"><img class="icon" src="./resources/images/icons/icon-disable.png"/>停用</button>
+			<button class="fl relation-posi-button" acl-code="relaPosition"><img class="icon" src="./resources/images/icons/rela-icon.png"/>关联职位</button>
+			<button class="fr import-button" acl-code="importDept"><img class="icon" src="./resources/images/icons/icon-export.png"/>导入医院</button>
+			<div style="clear: both;"></div>
+		</div>
+		<table id="position-table-title">
+		</table>
+	</div>
+	
+	<div class="list-content" style="padding-top: 56px;">
+			<!-- 树形列表:开始 -->
+			<div id="auth_list" class="auth_list">
+				
+	        </div>
+			<!-- 树形列表:结束 -->
+	</div>
+</div>
+<!--关联部门弹出框START-->
+<div id="rela-position" class="yt-pop-model rela-position-model">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">关联职位</span>
+		</div>
+		<div style="padding: 20px 15px 35px 15px;overflow: auto;">
+			<div class="input-search">
+				<input type="text" class="rela-dept-search" placeholder="请输入职位名称"/>
+				<button class="model-new-btn model-search-btn">
+					查询
+				</button>
+			</div>
+			<div style="padding-bottom: 8px;width: 460px;">
+				<div style="width: 230px;"></div>
+				<div style="width: 188px;text-align: left;float: right;">
+					<p>已选</p>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+			<table>
+				<tr>
+					<td>
+						<div class="role-left-list" onselectstart="return false">
+							<ul></ul>
+						</div>
+					</td>
+					<td width="85" align="center">
+						<div class="set-role-button">
+							<ul>
+								<li><button class="d-right"></button></li>
+								<li><button class="right"></button></li>
+								<li><button class="d-left"></button></li>
+								<li><button class="left" style="margin-bottom: 0px;"></button></li>
+							</ul>
+						</div>
+					</td>
+					<td>
+						<div class="role-right-list" onselectstart="return false">
+							<ul></ul>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="bottom-btn" style="margin-top: 30px;">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>	
+</div>
+<!--关联部门弹出框END-->
+<!--设置管理员弹出框START-->
+<div id="set-admin-model" class="yt-pop-model set-admin-model" style="width: 490px;height: 688px;">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">设置管理员</span>
+		</div>
+		<div style="padding: 20px 15px 35px 15px;overflow: auto;">
+			 <div class="input-search">
+				<input type="text" class="model-search-inpu set-admin-inpu" placeholder="请输入姓名"/>
+				<button class="model-new-btn model-search-btn">
+					查询
+				</button>
+			</div>
+			<div style="padding-bottom: 8px;width: 460px;">
+				<div style="width: 230px;"></div>
+				<div style="width: 188px;text-align: left;float: right;">
+					<p>已选</p>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+			<table>
+				<tr>
+					<td>
+						<div class="left-show-tree"  onselectstart="return false">
+							 <ul id="user-tree"></ul>
+						</div>
+					</td>
+					<td width="85" align="center">
+						<div class="set-role-button">
+							<ul>
+								<li><button class="right"></button></li>
+								<li><button class="left"style="margin-top: 40px;"></button></li>
+								<li><button class="d-left"  style="margin-bottom: 0px;margin-top: 40px;"></button></li>
+							</ul>
+						</div>
+					</td>
+					<td>
+						<div class="right-user-data" onselectstart="return false">
+							<ul></ul>
+						</div>
+					</td>
+				</tr>
+			</table>
+			  <table class="bottom-btn" style="margin-top: 30px;">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<!--设置管理员弹出框END-->
+<!--详情弹出框START-->
+<div id="import-detail" class="yt-pop-model import-detail-model">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">导入详情</span>
+		</div>
+	</div>
+	<div class="model-midd-cont">
+		 <div class="cont-heard-font">
+		 	   <div style="padding-bottom: 15px;">共导入<span class="into-num"></span>条信息，其中
+		 	   		<span class="add-info-num"></span>条新增，
+		 	   		<span class="update-info-num"></span>条修改
+		 	   </div>
+		 	   <div style="padding-bottom: 26px;" class="error-data">
+		 	   	   以下<span class="erro-info-num"></span>条导入失败
+		 	   </div>
+		 </div>
+		 <div class="import-info-list">
+		 	   <div class="hid-thead">
+		 	   	    <table style="margin: 0 auto;">
+		 	   	       <thead>
+		 	   	       	      <th width="34">序号</th>
+		 	   	       	      <th width="130">医院名称</th>
+		 	   	       	      <th width="62">医院编号</th>
+		 	   	       	      <th width="218">医院全称</th>
+		 	   	       	      <th width="32">类型</th>
+		 	   	       	      <th width="63">所属目录</th>
+		 	   	       	      <th width="256">失败原因</th>
+		 	   	       </thead>
+		 	  		</table>
+		 	   </div>
+		 	   <table class="erro-data-tab" style="margin: 0 auto;">
+		 	   	       <thead>
+		 	   	       	      <th width="34">序号</th>
+		 	   	       	      <th width="130">医院名称</th>
+		 	   	       	      <th width="62">医院编号</th>
+		 	   	       	      <th width="218">医院全称</th>
+		 	   	       	      <th width="32">类型</th>
+		 	   	       	      <th width="63">所属目录</th>
+		 	   	       	      <th width="256">失败原因</th>
+		 	   	       </thead>
+		 	   	       <tbody>
+			 	   		</tbody>
+		 	   </table>
+		 </div>
+	 	 <div class="bottom-btn" style="margin: 0 auto;padding-top: 30px;text-align: center;">
+ 	   	    <button class="cancel close-btn">关闭</button>
+ 	     </div>
+	</div>
+</div>
+<!--导出详情弹出框END-->
+<!--
+	作者：姚智荣
+	时间：2017-02-07
+	描述：新增弹出窗口
+-->
+<div id="edit-info" class="yt-pop-model" style="width: 430px;">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text"></span>
+		</div>
+		<div style="padding: 10px 0 30px 0;overflow: auto;">
+			<form id="edit-dept-info-form">
+				<table class="form-conten">
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>医院名称：</td>
+						<td><input type="text" class="input forShort clear-val" name="forShort" /><div class="msg-text" ></div></td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>医院全称：</td>
+						<td><input type="text" class="input deptNameing clear-val" name="deptNameing" /><div class="msg-text" ></div></td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>类型：</td>
+						<td>
+							<div class="type-radio" style="line-height: 36px;height: 36px;">
+								<label class="check-label yt-radio"><input id="type-m" type="radio" name="deptType"  value="1"/>公司</label>
+								<label class="check-label yt-radio"><input type="radio" name="deptType"  value="2"/>部门</label>
+							</div>
+							<div class="type-text" style="line-height: 36px;height: 36px;display: none;">
+								菜单
+							</div>
+							
+						</td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>所属上级：</td>
+						<td>
+							
+							<div class="input-button dept-manager manager-button select-button" style="position: relative;">
+								<input type="hidden" class="dept-hinput clear-val" value="" name="parentId" />
+								
+								<div class="dept-pop-model-button manager-button-text show_hide_div clear-html" style="height: 36px;"></div>
+								<!--<div class="dept-pop-model hide_div" id="showTreearea" >-->
+								<div id="sel-dept-tree">
+									<ul id="parent-tree"></ul>
+								</div>	
+								</div>
+							</div>
+							<div class="msg-text"></div>
+						</td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>医院编号：</td>
+						<td><input type="text" class="input deptNum clear-val" name="deptNum" placeholder="请输入"/><div class="msg-text" ></div></td>
+					</tr>
+					<tr>
+						<td align="right">排序号：</td>
+						<td><input type="text" class="input deptOrder clear-val" name="deptOrder" placeholder="请输入排序号"/><div class="msg-text" ></div></td>
+					</tr>
+					<tr>
+						<td align="right" style="padding-top: 20px;" valign="top">描述：</td>
+						<td>
+							<div class="textarea"><textarea class="clear-val" name="deptRemarks" rows="" cols=""></textarea></div>
+							<div class="msg-text" style="top: 110px;"></div>
+						</td>
+					</tr>
+				</table>
+			</form>
+			
+			<table class="bottom-btn">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+</div>
+
+
+<!--
+	作者：962243339@qq.com
+	时间：2017-02-09
+	描述：导入弹出框
+-->
+<div id="import-pop" style="width: 514px;height: 184px;">
+	<div>
+		<div class="q-alert-title">
+			<div class="q-alert-left-title">导入医院架构</div>
+		</div>
+		<div class="pwd-centen" style="height: 60px;">
+			<table style="margin-top: 25px;">
+				<tr>
+					<td><div class="form-label" style="width: auto;">导入文件：</div></td>
+					<td>
+						<div  class="input-button group-manager" style="position: relative;height: 36px;width: 250px;margin:0;padding: 0;">
+							<input type="file" id="file" class="file-button" value="" name="file" />
+							<div id="import-pop-file-button" class="one-text-overflow" style="padding: 10px;text-align: left;">点击上传文件</div>
+						</div>
+						<div class="msg-text"></div>
+					</td>
+					<td>
+						<button style="margin-left: 11px;" class="download-button" ><img class="icon" src="./resources/images/icons/icon-download.png"/>下载导入模板</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<table style="" class="bottom-btn" cellspacing="" cellpadding="">
+				<tbody>
+					<tr class="q-alert-button">
+						<td align="right"><button style="margin-left: 11px;" class="import-confirm-button radius5" ><img class="icon" src="./resources/images/icons/icon-export.png"/>导入</button></td>
+						<td align="left"><button style="margin-left: 11px;" class="import-cancel-button radius5" ><img class="icon" src="./resources/images/icons/icon-x.png"/>取消</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+</div>
+
+<script type="text/javascript" src="./resources/js/TreeGrid/TreeGrid.min.js"></script>
+<script type="text/javascript" src="./resources/js/easyuiTree/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="./resources/js/dTree/wtree.js"></script>
+<script type="text/javascript" src="./resources/js/ajaxfile/ajaxfileupload.min.js" ></script>
+<script src="./resources/js/acl/deptManager/deptManager.js" type="text/javascript" charset="utf-8"></script>
+<!--[if lt IE 9 ]>
+<script>
+	$(function (){
+		$('.top-button button,.search-button,.radius5').corner("5px");
+	})
+</script>
+<![endif]-->

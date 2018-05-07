@@ -1,0 +1,248 @@
+<link href="./resources/css/acl/admin-manager.min.css" rel="stylesheet" type="text/css"></link>	
+<link href="./resources/js/dTree/dtree.min.css" rel="stylesheet" type="text/css"></link>	
+<link rel="stylesheet" type="text/css" href="./resources/js/easyuiTree/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="./resources/js/easyuiTree/themes/icon.css">
+<div class="main-nav-content">
+	<div class="top-button-list">
+		<div class="top-search">
+			<div class="radius5 search-name-div" style=""><input class="search-name" type="text" placeholder="请输入角色名称或角色描述" /></div>
+			<button class="search-button select-button"><img class="icon" src="./resources/images/icons/search.png"/>查询</button>
+			<button class="search-button resize-button"><img class="icon" src="./resources/images/icons/resize.png"/>重置</button>
+		</div>
+		<div class="top-button" onselectstart="return false">
+			<button class="fl add-role-button" acl-code="addRole"><img class="icon" src="./resources/images/icons/icon-add.png"/>新增</button>
+			<button class="fl update-role-button" acl-code="updateRole"><img class="icon" src="./resources/images/icons/icon-edit.png"/>编辑</button>
+			<button class="fl delete-role-button" acl-code="deleteRole"><img class="icon" src="./resources/images/icons/icon-del.png"/>删除</button>
+			<button class="fl set-user-button" acl-code="setUser"><img class="icon" src="./resources/images/icons/icon-set.png"/>指派人员</button>
+			<button class="fl set-menu" acl-code="setMenu"><img class="icon" src="./resources/images/icons/icon-set-role.png"/>分配权限</button>
+			<button class="fl enable-button" acl-code="enableRole"><img class="icon" src="./resources/images/icons/icon-enable.png"/>启用</button>
+			<button class="fl disable-button" acl-code="disableRole"><img class="icon" src="./resources/images/icons/icon-disable.png"/>停用</button>
+			<div style="clear: both;"></div>
+		</div>
+		<table class="commen-table">
+			<thead>
+				<tr>
+					<th width="414px">角色名称</th>
+					<th width="415px">角色描述</th>
+					<th width="200px">状态</th>
+				</tr>	
+			</thead>
+		</table>
+	</div>
+	
+	<div class="list-content" style="padding-top: 105px;table-layout: fixed;">
+		<table class="commen-table">
+			<thead>
+				<tr>
+					<th width="414px">角色名称</th>
+					<th width="415px">角色描述</th>
+					<th width="200px">状态</th>
+				</tr>	
+			</thead>
+			<tbody>
+				<!--<tr>      
+					<td>zhangchengjun</td>
+					<td>张成俊</td>
+					<td>中科倚天</td>
+					<td>研发部</td>
+					<td>项目经理</td>
+					<td>zhangchengjun@yitiangroup.com</td>
+					<td>15235698562</td>
+					<td><span class="enable">启用</span></td>
+				</tr>
+				-->
+				
+			</tbody>
+		</table>
+			
+			<div class="page-info opinion-page"  onselectstart="return false">
+				<table>
+					<tr>
+						<!--<td>总计：28条信息</td>
+						<td><div class="frist-page">首页</div></td>
+						<td><div class="last-page pointer">上一页</div></td>
+						<td><div class="num-text active">1</div></td>
+						<td><div class="num-text">2</div></td>
+						<td><div class="num-text">3</div></td>
+						<td><div class="num-text">4</div></td>
+						<td><div class="">···</div></td>
+						<td><div class="num-text">16</div></td>
+						<td><div class="next-page pointer">下一页</div></td>
+						<td><div class="end-page">尾页</div></td>-->
+					</tr>
+				</table>
+				
+			</div>
+	</div>
+</div>
+
+
+<!--
+	作者：姚智荣
+	时间：2017-02-07
+	描述：新增弹出窗口
+-->
+<div id="edit-role-info" class="yt-pop-model .radius5" style="width: 430px;">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">人员信息</span>
+		</div>
+		<div style="padding: 10px 0 30px 0;overflow: auto;">
+			<form id="edit-role-info-form">
+				<table class="form-conten">
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>角色名称：</td>
+						<td><input type="text" class="input role-itcode clear-val" name="roleName" /><div class="msg-text"></div></td>
+					</tr>
+					<tr>
+						<td><div style="position: absolute;top: 22px;right: 0;" class="form-label">角色描述：</div></td>
+						<td>
+							<div class="textarea"><textarea class="clear-val" name="roleDesc" rows="" cols=""></textarea></div>
+							<div class="msg-text"></div>
+						</td>
+					</tr>
+				</table>
+			</form>
+			<table class="bottom-btn">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+</div>
+<!--设置管理员弹出框START-->
+<div id="set-admin-model" class="yt-pop-model set-admin-model" style="width: 490px;height: 688px;">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">指派人员</span>
+		</div>
+		<div style="padding: 20px 15px 35px 15px;overflow: auto;">
+			 <div class="input-search">
+				<input type="text" class="model-search-inpu set-admin-inpu" placeholder="请输入姓名"/>
+				<button class="model-new-btn model-search-btn">
+					查询
+				</button>
+			</div>
+			<div style="padding-bottom: 8px;width: 460px;">
+				<div style="width: 230px;"></div>
+				<div style="width: 188px;text-align: left;float: right;">
+					<p>已选</p>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+			<table>
+				<tr>
+					<td>
+						<div class="left-show-tree"  onselectstart="return false">
+							 <ul id="user-tree"></ul>
+						</div>
+					</td>
+					<td width="85" align="center">
+						<div class="set-role-button">
+							<ul>
+								<li><button class="d-right" style="margin-top: 0px;"></button></li>
+								<li><button class="right" style="margin-top: 18px;"></button></li>
+								<li><button class="d-left" style="margin-top: 18px;"></button></li>
+								<li><button class="left"  style="margin-top: 18px;"></button></li>
+							</ul>
+						</div>
+					</td>
+					<td>
+						<div class="right-user-data" onselectstart="return false">
+							<ul></ul>
+						</div>
+					</td>
+				</tr>
+			</table>
+			  <table class="bottom-btn" style="margin-top: 30px;">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<!--设置管理员弹出框END-->
+<div id="set-role-user" class="yt-pop-model set-user-role">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">分配角色</span>
+		</div>
+		<div style="padding: 10px 0 30px 0;overflow: auto;">
+			<table>
+				<tr>
+					<td>
+						<p>全部</p>
+						<div class="role-left-list" onselectstart="return false">
+							<div class="input-search">
+								<input type="text" />
+							</div>
+							<ul>
+							</ul>
+						</div>
+					</td>
+					<td width="1">
+						<div class="set-role-button">
+							<ul>
+								<li><button class="d-right"></button></li>
+								<li><button class="right"></button></li>
+								<li><button class="d-left"></button></li>
+								<li><button class="left"></button></li>
+							</ul>
+						</div>
+					</td>
+					<td>
+						<p>已选</p>
+						<div class="role-right-list" onselectstart="return false">
+							<ul>
+							</ul>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="bottom-btn">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>	
+</div>
+
+
+
+<div id="set-menu" class="yt-pop-model">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text">分配权限</span>
+		</div>
+		<div style="padding:0 0 20px 0">
+			<div id="dtree" style="height: 400px;overflow: auto;padding: 0 35px;">
+				
+			</div>
+			<table class="bottom-btn">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>	
+</div>
+
+<script type="text/javascript" src="./resources/js/dTree/wtree.js"></script>
+<script type="text/javascript" src="./resources/js/easyuiTree/jquery.easyui.min.js"></script>
+<script src="./resources/js/acl/roleManager/roleManager.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="./resources/js/ajaxfile/ajaxfileupload.min.js" ></script>
+<!--[if lt IE 9 ]>
+<script>
+	$(function (){
+		$('.top-button button,.search-button,.radius5').corner("5px");
+	})
+</script>
+<![endif]-->

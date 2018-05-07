@@ -1,0 +1,1488 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,xmp,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; }
+body { background:#f3f3f3; color:#333; font-size:14px; font-family: Microsoft YaHei,Verdana, Arial, Helvetica, sans-serif; }
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+a { color:#555; text-decoration:none; }
+a:hover { color:#2080bf;text-decoration:underline; }
+img,tr,td{ border:none; }
+ol,ul,li { list-style:none; }
+input, textarea, select, button { font:14px Microsoft YaHei,Verdana, Arial, Helvetica, sans-serif; }
+table { border-collapse:collapse; border: none;}
+select{
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+}
+.yt-option-button-sure{background: #3C7AB9 !important;}
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand { display: none; }
+/*隐藏ie输入框自带x样式*/
+::-ms-clear{display: none;}
+/*隐藏ie输入框密码自带小眼睛查看样式*/
+::-ms-reveal{display: none;}
+/*placeholder 字体颜色*/
+::-webkit-input-placeholder { /* WebKit browsers */ 
+color: #999; 
+} 
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+color: #999; 
+} 
+::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+color: #999; 
+} 
+:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+color: #999; 
+} 
+
+/***********************************************基础元素(B)样式**************************************************/
+/**
+ * 
+ * (B01)输入文本框
+ * 
+ */
+.yt-input {
+	width: 195px;
+	height: 30px;
+	line-height: 28px;
+	padding-left: 4px;
+	background: #FFFFFF;
+	color: #333333;
+	font-size: 14px;
+	outline: none;
+	border: 1px solid #DFE6F3;
+}
+/*
+ *必填字段红星标记 
+ *
+ */
+.yt-red-star {
+	color: red;
+	margin-right: 2px;
+}
+/*
+ * 输入框鼠标悬浮效果
+ */
+.yt-input:hover {
+	border-color: #bcc8dd!important;
+}
+.yt-input:focus {
+	border-color: #4387cd!important;
+}
+/**
+ *
+ * (B02)下拉列表
+ *
+ **/
+.nice-select {
+	-webkit-tap-highlight-color: transparent;
+	background-color: #FFFFFF;
+	border: solid 1px #dfe6f3;
+	box-sizing: border-box;
+	clear: both;
+	cursor: pointer;
+	display: block;
+	float: left;
+	font-family: inherit;
+	font-size: 14px;
+	color: #333333;
+	font-weight: normal;
+	height: 30px;
+	line-height: 28px;
+	outline: none;
+	padding-left: 4px;
+	padding-right: 23px;
+	position: relative;
+	text-align: left !important;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	white-space: nowrap;
+	width: auto;
+	color: #333;
+}
+/**
+ * 
+ *输入框中显示的文本
+ *
+ */
+.nice-select .current {
+	width: 100%;
+	color: #999;
+	display: inline-block;
+	overflow: hidden;
+}
+/**
+ * 
+ *下拉列表输入框鼠标悬浮效果
+ *
+ */
+.nice-select:hover {
+	border-color: #bcc8dd!important;
+}
+/**
+ * 
+ *输入框中方向标
+ *
+ */
+.nice-select:after {
+	border-bottom: 2px solid #999;
+	border-right: 2px solid #999;
+	content: '';
+	display: block;
+	height: 5px;
+	margin-top: -4px;
+	pointer-events: none;
+	position: absolute;
+	right: 12px;
+	top: 50%;
+	-webkit-transform-origin: 66% 66%;
+	-ms-transform-origin: 66% 66%;
+	transform-origin: 66% 66%;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	-webkit-transition: all 0.15s ease-in-out;
+	transition: all 0.15s ease-in-out;
+	width: 5px;
+}
+/**
+ * 
+ *下拉列表展开后方向标动画
+ *
+ */
+.nice-select.open:after {
+	-webkit-transform: rotate(-135deg);
+	-ms-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+}
+/**
+ * 
+ *下拉列表展开动画
+ *
+ */
+.nice-select.open .list {
+	opacity: 1;
+	pointer-events: auto;
+	-webkit-transform: scale(1) translateY(0);
+	-ms-transform: scale(1) translateY(0);
+	transform: scale(1) translateY(0);
+}
+/**
+ * 
+ *下拉列表禁用样式
+ *
+ */
+.nice-select.disabled {
+	border-color: #ededed;
+	color: #999;
+	pointer-events: none;
+}
+/**
+ * 
+ *禁用后添加边框颜色
+ *
+ */
+.nice-select.disabled:after {
+	border-color: #cccccc;
+}
+
+.nice-select.wide {
+	width: 100%;
+}
+
+.nice-select.wide .list {
+	left: 0 !important;
+	right: 0 !important;
+}
+
+.nice-select.right {
+	float: right;
+}
+
+.nice-select.right .list {
+	left: auto;
+	right: 0;
+}
+
+.nice-select.small {
+	font-size: 12px;
+	height: 36px;
+	line-height: 34px;
+}
+
+.nice-select.small:after {
+	height: 4px;
+	width: 4px;
+}
+
+.nice-select.small .option {
+	line-height: 34px;
+	min-height: 34px;
+}
+/**
+ * 
+ *插件生成div列表样式
+ *
+ */
+.nice-select .list {
+	width: 99%;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	margin-left: -1px;
+	max-height: 200px;
+	overflow: auto;
+	opacity: 0;
+	overflow: hidden;
+	padding: 0;
+	border-radius: 2px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+	pointer-events: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	-webkit-transform-origin: 50% 0;
+	-ms-transform-origin: 50% 0;
+	transform-origin: 50% 0;
+	-webkit-transform: scale(0.75) translateY(-21px);
+	-ms-transform: scale(0.75) translateY(-21px);
+	transform: scale(0.75) translateY(-21px);
+	-webkit-transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+	transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+	z-index: 9;
+	max-height: 200px;
+	overflow: auto;
+}
+/**
+ * 
+ *插件生成div列表下数据样式
+ *
+ */
+.nice-select .option {
+	cursor: pointer;
+	width: auto;
+	color: #333;
+	font-weight: 400;
+	line-height: 25px;
+	list-style: none;
+	min-height: 25px;
+	outline: none;
+	padding-left: 4px;
+	padding-right: 29px;
+	text-align: left;
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+}
+/**
+ * 
+ *下拉列表选中样式
+ *
+ */
+.nice-select .option.focus,
+.nice-select .option.selected.focus {
+	color: #333333;
+	background-color: #FAFAFA;
+	border: 1px dotted #DFE6F3;
+}
+/**
+ * 
+ *下拉列表悬浮样式
+ *
+ */
+.nice-select .option:hover {
+	background-color: #F6F6F6;
+}
+.nice-select .option.disabled {
+	background-color: transparent;
+	color: #999;
+	cursor: default;
+}
+/**
+ * 
+ *下拉列表支持可搜索数据框样式
+ *
+ */
+.nice-select .search-current {
+	padding-left: 0px;
+	width: 100%;
+	border: none;
+	outline: none;
+	font-size: 14px;
+	color: #999;
+	background: none;
+}
+
+.no-csspointerevents .nice-select .list {
+	display: none;
+}
+
+.no-csspointerevents .nice-select.open .list {
+	display: block;
+}
+
+/**
+ * 
+ *select 宽度设置
+ *
+ */
+.yt-select {
+	width: 200px;
+}
+
+/**
+ * 
+ *(B03)按钮
+ *
+ */
+.yt-option-btn{
+	width: 80px;
+	height: 30px;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	color: #fff;
+	cursor: pointer;
+	background: #4387CD;
+	border:1px solid #4387CD;
+	outline: none;
+	padding-bottom: 1px;
+}
+/**
+ * 
+ *按钮鼠标悬浮效果
+ *
+ */
+.yt-option-btn:hover {
+	background: rgba(65, 141, 204)!important;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+/**
+ * 
+ *按钮图片边距
+ *
+ */
+.yt-option-btn img {
+    vertical-align: middle;
+ 	margin-right: 3px;
+    margin-bottom: 2px;
+}
+/**
+ * 
+ *点击后的按钮
+ *
+ */
+.yt-option-btn.yt-btn-sure {
+	background: #3c7ab9 !important;
+}
+/**
+ * 
+ *禁用的按钮样式
+ *
+ */
+.yt-option-btn.yt-btn-disabled {
+	background: #FAFAFA !important;
+	color: #E5E5E5 !important;
+	border: 1px solid #FAFAFA;
+}
+/**
+ * 
+ *(B04)表格
+ *
+ */
+
+.yt-table {
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+/**
+ * 
+ *表头样式
+ *
+ */
+.yt-thead th {
+	padding: 4px;
+	vertical-align: middle;
+	border-top: none !important;
+	height: 22px;
+	background: #4387cd;
+	color: #fff;
+	font-size: 14px;
+	font-weight: normal;
+	border: 1px solid #DDDDDD;
+}
+/**
+ * 
+ *表格行样式
+ *
+ */
+.yt-tbody tr {
+	border: 1px solid #DFE6F3;
+	cursor: pointer;
+}
+/**
+ * 
+ *表格列样式
+ *
+ */
+.yt-tbody td {
+	border-right: 1px solid #DFE6F3;
+	padding: 10px 4px;
+	vertical-align: middle;
+	color: #333;
+	font-size: 14px;
+	text-align: center;
+}
+
+/**
+ *表格文本过长，换行左对齐 
+ *
+ */
+.yt-table-br {
+	text-align: left;
+}
+
+/**
+ * 
+ * 表格行数据悬浮样式
+ * 
+ */
+.yt-table tbody tr:hover {
+	background: #fafafa;
+}
+/**
+ * 
+ *选中的行样式 
+ *
+ */
+.yt-table-active {
+	background: #d9e8f5 !important;
+}
+
+/**
+ *
+ *(B05)单选按钮
+ *
+ *
+ */
+
+label.yt-checkbox,
+label.yt-radio {
+	cursor: pointer;
+	padding-left: 25px !important;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/*label {
+	display: inline-block;
+	height: 22px;
+}*/
+/**
+ * 
+ * radio默认背景
+ *
+ */
+label.yt-radio {
+	background: url(../images/icons/lsqwhite-radio.png) 0 -40px no-repeat !important;
+}
+/**
+ * 
+ * radio禁用背景
+ *
+ */
+label.yt-radio.yt-radio-disabled {
+	background: url(../images/icons/lsqwhite-radio.png) 0 -100px no-repeat !important;
+}
+
+/**
+ * 
+ * 全选;多选默认样式
+ * 
+ */
+label.yt-checkbox input,
+label.yt-radio input {
+	position: absolute;
+    left: 0 !important;
+    cursor: pointer;
+    opacity: 0 !important;
+}
+/**
+ * 
+ * radio默认选中背景
+ *
+ */
+label.yt-radio.check {
+	background: url(../images/icons/lsqwhite-radio.png) 0 0px no-repeat !important;
+	position: relative;
+}
+
+/**
+ * 
+ * 
+ * (B06)多选按钮
+ *
+ * 
+ */
+
+/**
+ * 
+ * checkbox默认背景
+ *
+ */
+label.yt-checkbox {
+	background: url(../images/icons/white_check.png) 0 -31px no-repeat !important;
+}
+/**
+ * 
+ * checkbox默认选中背景
+ *
+ */
+label.yt-checkbox.check {
+	background: url(../images/icons/white_check.png) 0 3px no-repeat !important;
+	position: relative;
+}
+/**
+ * 
+ * checkbox禁用背景
+ *
+ */
+label.yt-check-disabled {
+	background: url(../images/icons/white_check.png) 0 -65px no-repeat !important;
+}
+/**
+ * 
+ * 
+ * checkbox半选背景
+ *
+ *
+ */
+label.yt-checkbox-half {
+	background: url(../images/icons/white_check.png) 0 -99px no-repeat !important;
+}
+
+/**
+ * 
+ * (B07)滚动条
+ *
+ */
+.yt-scroll-model {
+	width: 400px;
+	height: 300px;
+	padding: 10px;
+	overflow: auto;
+}
+/*
+ *
+ *(B08)进度条
+ *
+ */
+.yt-progress{
+	padding: 6px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background: #f0f0f0;
+	width: 260px;
+	height: 12px;
+	margin-bottom: 50px;
+}
+.yt-progress-probar{
+	float:left;
+	width:260px;
+	background:#d8d8d8;
+	height:12px;
+	display:inline-block;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	display:none;
+	position:relative;
+	left:0px;
+	top:0px;
+}
+/**
+ * 
+ * 进度条定位
+ * 
+ */
+#yt-progress-line{
+   	position: absolute;
+   	z-index: 10px;
+}
+/**
+ * 
+ * 进度条,白色原点
+ * 
+ */
+.yt-progress-ball-div{
+   	background:#fff;
+   	width:14px;
+   	height: 14px;
+   	-webkit-border-radius: 50px;
+   	-moz-border-radius: 50px;
+   	border-radius: 50px;
+   	position: absolute;
+   	z-index:20px;
+   	margin-top: -1px;
+}
+/**
+ * 
+ * 移动的标签进度条百分比显示
+ * 
+ */
+.yt-progress-percent{
+	position:absolute;
+	left:0px;
+	top:-32px;
+	display:inline-block;
+	color:#fff;
+	font-size:16px;
+	background: url(../images/icons/bubble.png);
+	width: 50px;
+	height: 28px;
+	text-align: center;
+}
+/**
+ * 
+ * 进度条背景渐变
+ * 
+ */
+.yt-progress-line{
+	float:left;
+	height:12px;
+	overflow:hidden;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#b8d9fb), to(#4387cd));   
+	background: -webkit-linear-gradient(left, #b8d9fb, #4387cd);   
+    background: -moz-linear-gradient(left, #b8d9fb, #4387cd);   
+    background: -o-linear-gradient(left, #b8d9fb, #4387cd);   
+    background: -ms-linear-gradient(left, #b8d9fb, #4387cd);   
+    background: linear-gradient(left, #b8d9fb, #4387cd);   
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr = #b8d9fb, endColorstr = #4387cd);  
+}
+
+/*
+ *
+ *(B09)文本域
+ *
+ *
+ */
+.yt-textarea {
+	width: 500px;
+	height: 80px;
+	border: 1px solid #DFE6F3;
+	font-size: 14px;
+	color: #333333;
+	outline: none;
+	background: #FFFFFF;
+	padding-left: 4px;
+}
+/*
+ *
+ * 
+ *文本域悬浮样式
+ *
+ * 
+ */
+.yt-textarea:hover {
+	border-color: #bcc8dd!important;
+}
+.yt-textarea:focus {
+	border-color: #4387cd!important;
+}
+/*
+ *
+ *(B10)数字输入框
+ *
+ *
+ */
+/*外层div*/
+.yt-numberInput-box{
+	width:200px;
+	position: relative;
+}
+/*输入框样式*/
+.yt-numberInput{
+	color: #999;
+    width: 174px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 20px 0 4px;
+    margin: 0;
+    border-radius: 2px;
+    outline: none;
+    border: 1px solid #DFE6F3;
+}
+.yt-numberInput::-ms-clear{display: none;}
+/*切换键外层样式*/
+.yt-spin-wrap{
+    position: absolute;
+    width: 20px;
+    height: 24px;
+    top: 4px;
+    right: 0px;
+}
+/*向上*/
+.yt-spin-up{
+    background: url(../images/icons/noUp.png) no-repeat 5px 4px;
+    height: 12px;
+}
+/*向下*/
+.yt-spin-down{
+    background: url(../images/icons/noDown.png) no-repeat 5px 4px;
+    height: 12px;
+}
+/*向上按钮鼠标悬浮样式*/
+.yt-spin-up:hover{
+	background:url(../images/icons/clickUp.png) no-repeat 5px 4px;
+    height: 12px;
+}
+/*向下按钮鼠标悬浮样式*/
+.yt-spin-down:hover{
+	background:url(../images/icons/clickDown.png) no-repeat 5px 4px;
+    height: 12px;
+}
+/*按钮鼠标悬浮样式*/
+.yt-spin:hover{
+    cursor:pointer;
+}
+/*输入框鼠标悬浮样式*/
+.yt-numberInput:hover {
+	border-color: #bcc8dd!important;
+}
+/*输入框获取焦点样式*/
+.yt-numberInput:focus {
+	border-color: #4387CD!important;
+}
+
+/**
+ * 
+ *B(011)超链接
+ *
+ */
+
+/*超链接默认样式*/
+.yt-link {
+	color: #4387CD;
+	cursor: pointer;
+}
+/*超链接鼠标悬浮样式*/
+.yt-link:hover{
+	color: #4387CD;
+}
+/*超链接鼠标点击样式*/
+.yt-link:active{
+	color: #3C7AB9 !important;
+}
+/**
+ * 
+ * 
+ *B(13)loading
+ * 
+ * 
+ */
+.page-loading{
+	width: 130px;
+	height: 130px;
+	position: absolute;
+	top:0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin:auto;
+}
+/********************************************************控件(C)样式******************************************************/
+/*
+ *
+ *C(03) 横向Tab 
+ * 
+ * 
+ **/
+/*横向tab样式*/
+.yt-tab-row{
+	width: 606px;
+	border: 1px solid #DFE6F3;
+	border-right: none;
+	border-bottom: none;
+	overflow: hidden;
+}
+/*横向tab列表的样式*/
+.yt-tab-row-list{
+	float: left;
+	width: 150px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	border-right: 1px solid #DFE6F3;
+	border-bottom: none;
+	cursor: pointer;
+	color: #333333;
+}
+/*横向tab内容的样式*/
+.yt-tab-row-content{
+	width: 603px;
+	height: 100px;
+	border: 1px solid #DFE6F3;
+	border-top: none;
+	border-left:none;
+}
+/*横向tab列表鼠标悬浮的样式*/
+.yt-tab-row-list:hover{
+	background: #699fd7 !important;
+	color: #FFFFFF;
+}
+/*点击后添加的样式*/
+.yt-tab-active{
+	background: #4387CD !important;
+	color: #FFFFFF !important;
+}
+
+/**
+ * 
+ * C(07)消息气泡
+ * 
+ * 
+ * */
+.yt-bubble{
+	background-color: #fd4040;
+	width: 25px;
+	height: 25px;
+	font-size: 18px;
+	text-align: center;
+	border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	color: #fff;
+	display: inline-block !important;
+	cursor: pointer;
+}
+/**
+ * 气泡悬浮样式
+ */
+.yt-bubble:hover{
+	background-color: rgb(253,102,102) !important;
+}
+/**
+ * 气泡点击样式
+ */
+.yt-bubble:active{
+	background-color: #fd4040 !important;
+}
+/**
+ * 气泡超过3位数,加上右上角文字标签
+ */
+.yt-bubble sup{
+	font-size: 10px;
+    position: absolute;
+}
+
+/*
+ * 
+ *C(10)列表组 
+ * 
+ **/
+.yt-list-ul{
+    width:85%;
+    height: auto;
+    border: 1px solid #DFE6F3;
+    border-bottom: none;
+    background: #FFFFFF;
+    font-size: 14px;
+    color: #333333;
+}
+.yt-list-li{
+    list-style: none;
+    border-bottom: 1px solid #DFE6F3;
+    line-height: 20px;
+    word-wrap: break-word;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 20px;
+    font-size: 16px;
+    color: #333333;
+}
+.yt-list-li img{
+	vertical-align: middle;
+	margin-right: 20px;
+}
+/**
+ * 
+ * 弹出框C19样式
+ * 
+ */
+#pop-modle-alert {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10000;
+	background-color: #000000;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	display: none;
+}
+
+.yt-pop-model {
+	min-height: 522px;
+	height: auto;
+	left: 0;
+	/*right: 0;*/
+	margin: auto;
+	display: none;
+	z-index: 10003;
+	background: #FFFFFF;
+}
+/**
+ * 
+ *弹出框默认表格外层 
+ * 
+ */
+.yt-alert-table {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	width: 100%;
+	background: none;
+}
+.yt-alert-model{
+	position: fixed;
+	left: 0;
+	top: 0;
+	/*bottom: 0;*/
+	margin: auto;
+}
+/**
+ * 
+ * 弹出框一外层
+ * 
+ */
+.yt-alert-one {
+	padding: 20px 0px;
+	width: 350px;
+	text-align: center;
+	margin: auto;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	background: #fff;
+}
+/**
+ * 
+ * 弹出框一图标区域
+ * 
+ */
+.yt-alert-one .yt-alert-one-icon {
+	padding-bottom: 15px;
+}
+/**
+ * 
+ * 弹出框一图标
+ * 
+ */
+.yt-alert-one .yt-alert-one-icon img {
+	vertical-align: middle;
+}
+/**
+ * 
+ * 弹出框一提示文本区域
+ * 
+ */
+.yt-alert-one .yt-alert-one-msg {
+	font-size: 18px;
+	color: #333;
+	padding: 0px 20px 40px 20px;
+}
+/**
+ * 
+ * 弹出框底部按钮公用样式
+ * 
+ */
+.yt-model-bot-btn {
+	width: 80px;
+	height: 30px;
+	padding-bottom: 2px;
+	font-size: 16px;
+	-moz-border-radius: 2px;
+	/* Firefox */
+	-webkit-border-radius: 2px;
+	/* Safari and Chrome */
+	border-radius: 2px;
+}
+.yt-model-bot-btn:hover{
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+.yt-model-bot-btn.yt-model-sure-btn:active{
+	background: #3C7AB9 !important;
+	border: 1px solid #3C7AB9;
+}
+/**
+ * 
+ * 弹出框底部确认按钮公用样式
+ * 
+ */
+.yt-model-sure-btn {
+	background: #4387CD;
+	border: 1px solid #4387CD;
+	color: #FFFFFF;
+	cursor: pointer;
+	outline: none;
+}
+/**
+ * 
+ * 弹出框底部取消按钮公用样式
+ * 
+ */
+.yt-model-canel-btn {
+	background: #eee;
+	border: 1px solid #eee;
+	color: #666;
+	margin-left: 40px;
+	cursor: pointer;
+	outline: none;
+}
+/**
+ * 
+ * 弹出框二外层结构样式
+ * 
+ */
+.yt-alert-two {
+	width: 150px;
+	height: 150px;
+	background: #FFFFFF;
+	text-align: center;
+	margin: auto;
+	-moz-border-radius: 2px;
+	/* Firefox */
+	-webkit-border-radius: 2px;
+	/* Safari and Chrome */
+	border-radius: 2px;
+}
+/**
+ * 
+ * 弹出框二外层结构样式
+ * 
+ */
+.yt-alert-two-icon {
+	padding: 20px 0px 3px 0px;
+}
+/**
+ * 
+ * 弹出框二文本信息区域
+ * 
+ */
+.yt-alert-two-msg {
+	font-size: 18px;
+	color: #333;
+	padding-bottom: 3px;
+}
+/**
+ * 
+ * 弹出框二第二个文本信息区域
+ * 
+ */
+.yt-alert-two-attach {
+	font-size: 14px;
+	color: #999999;
+	height: 25px;
+	line-height: 25px;
+}
+/**
+ * 
+ * 弹出框二倒计时样式
+ * 
+ */
+.yt-alert-two-attach .yt-secs-num {
+	font-size: 18px;
+	color: #41cc6c;
+	padding-left: 5px;
+}
+/**
+ * 
+ * 弹出框二关闭按钮区域
+ * 
+ */
+.yt-alert-close {
+	display: block;
+	top: 10px;
+	right: 10px;
+	text-align: right;
+	padding-right: 20px;
+}
+/**
+ * 
+ * 弹出框二关闭按钮图标
+ * 
+ */
+.yt-alert-close img {
+	cursor: pointer;
+}
+/**
+ * 
+ * 
+ * 弹出框三外层结构样式
+ * 
+ * 
+ */
+.yt-edit-alert{
+	position: fixed;
+	background: #FFFFFF;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	width: 400px;
+}
+/**
+ * 
+ * 弹出框三标题区域
+ * 
+ */
+.yt-edit-alert-title {
+	background: #4a5f70;
+	height: 40px;
+	line-height: 40px;
+	color: #FFFFFF;
+	font-size: 16px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	cursor: move;
+	text-align: center;
+}
+/**
+ * 
+ * 弹出框三标题区域图标
+ * 
+ */
+.yt-edit-alert-title img {
+	vertical-align: middle;
+	margin-right: 5px;
+	margin-bottom: 2px;
+}
+/**
+ * 
+ * 编辑弹出框底部样式
+ * 
+ */
+ .yt-edit-alert .yt-eidt-model-bottom{
+	text-align: center;
+	height: 49px;
+	line-height: 49px;
+	border-top: 1px solid #dfe6f3;
+}
+/**
+ * 
+ * 弹出框四外层结构
+ * 
+ */
+.yt-alert-four {
+	width: 320px;
+	height: 60px;
+	line-height: 60px;
+	background: #000000;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	color: #FFFFFF;
+	font-size: 18px;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	text-align: center;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding: 10px;
+}
+/**
+ * 
+ * 
+ * C(22)字段验证
+ * 
+ * 
+ */
+.valid-font {
+	font-size: 12px;
+	color: #f00000;
+	position: absolute;
+	left: 0;
+	top: 30px;
+	margin-left: 5px;
+	margin-top: 2px;
+}
+/**
+ * 验证标红框样式
+ */
+.valid-bor-sty{
+	border: 1px solid #f00000 !important;
+}
+
+/**
+ * 
+ * 
+ * C(27)加载更多
+ * 
+ * 
+ * 
+ */
+.yt-load-more-model{
+	padding: 30px 0px 10px 0px;
+	text-align: center;
+}
+/**
+ * 
+ * 加载按钮样式
+ */
+.yt-load-more-model .yt-load-more-btn{
+	background-color: #FFFFFF;
+	border: 0px;
+	width: 240px;
+	height: 45px;
+	color: #4387CD;
+	font-size: 18px;
+	cursor: pointer;
+	outline: none;
+	margin: 0 auto;
+}
+/**
+ * 加载按钮中图标的样式
+ */
+.yt-load-more-model .yt-load-more-btn img{
+	vertical-align: middle;
+	margin-right: 10px;
+	margin-bottom: 3px;
+}
+/**
+ * 加载更多没有数据样式
+ */
+.yt-load-more-model .yt-load-no-data{
+	color: #999;
+	font-size: 18px;
+	display: none;
+}
+/**
+ * 
+ * 加载更多loading样式
+ * 
+ */
+.yt-more-loading-icon{
+	color: #999;
+	font-size: 18px;
+	text-align: center;
+	display: none;
+}
+.yt-more-loading-icon img{
+	vertical-align:middle;
+	margin-bottom: 3px;
+    margin-right: 5px;
+}
+/**
+ * 
+ * 
+ * 
+ * C(28)表头筛选
+ * 
+ * 
+ */
+/**
+ * 支持表头筛选的thead公用样式
+ */
+.yt-screen-thead thead th{
+	cursor: pointer;
+}
+/**
+ * 表头图标样式
+ */
+.yt-screen-thead thead th img{
+	vertical-align: middle;
+	margin-left: 3px;
+	margin-bottom: 2px;
+}
+/**
+ * 选中表头改变字体样式
+ */
+.th-font-change{
+	font-style: oblique;
+	font-weight: bold;
+}
+/**
+ * 查询条件悬浮框公用样式
+ */
+.yt-suspension-model{
+	display: none;
+	font-size: 14px;
+	color: #333;
+	left: 0;
+	text-align: left;
+	position: absolute;
+	background: #FFFFFF;
+    border: 1px solid #999999;
+    max-height: 200px;
+    overflow-y: auto;
+    top: 30px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+	-moz-box-shadow: -1px 1px 16px #5c4a5c;
+	-webkit-box-shadow: -1px 1px 16px #5c4a5c;
+	box-shadow: -1px 1px 16px #5c4a5c;
+}
+.yt-suspension-model .ul-list li{
+	padding: 8px;
+}
+.yt-suspension-model ul li{
+	border: 1px solid #fff;
+}
+.yt-suspension-model.checobox-query{
+	width: 280px;
+}
+.yt-suspension-model.checobox-query label.yt-checkbox{
+	display: block;
+    width: 100%;
+    padding-left: 0px !important;
+    text-indent: 30px;
+    height: 24px;
+    padding: 8px 0px 4px 29px;
+    background: url(../images/icons/white_check.png) 10px -23px no-repeat !important;
+}
+.yt-suspension-model.checobox-query label.yt-checkbox.check{
+	   background: url(../images/icons/white_check.png) 10px 11px no-repeat !important;
+}
+
+/**
+ * 查询div里li标签选中样式
+ */
+.yt-suspension-model ul li.li-check{
+	background-color: #e1ecf6;
+	border: 1px dashed #DDDDDD;
+	border-left:0px;
+	border-right: 0px;
+}
+/**
+ * 清除查询样式
+ */
+.yt-clear-query {
+	padding: 10px;
+	display: none;
+}
+.yt-clear-query a{
+  font-size: 14px;
+  color: #418dcc;
+}
+/*
+ * 单选查询样式
+ */
+.radio-query{
+	width: 120px;
+}
+.radio-query li label{
+	width: 75px;
+}
+/**
+ * 日期查询
+ */
+.yt-suspension-model.data-query{
+	width: 100px;
+	overflow-x: hidden;
+}
+.yt-suspension-model.data-query ul li .dadta-right-icon{
+	float: right;
+	padding-right: 10px;
+}
+.yt-suspension-model.data-query ul li .dadta-right-icon img{
+	vertical-align: middle;
+	margin-bottom: 3px;
+}
+.data-query .calendar-input{
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+    width: 85px;
+    position:absolute;
+    left: 100px;
+    top: -30px;
+}
+/**
+ * 模糊查询样式
+ */
+.vague-query{
+	width: 280px;
+	padding: 10px 0px 0px 10px;
+}
+.vague-query ul li{
+	padding: 5px 0px 5px 5px;
+}
+.vague-query .clear-span{
+	margin-left: 4px;
+}
+.vague-query .clear-span a{
+	color: #418dcc;
+}
+/**
+ *数字查询样式
+ */
+.number-query{
+	width:100px;
+}
+.number-query .yt-numberInput-box{
+	width: 100px;
+}
+.number-query .yt-numberInput{
+	text-align: center;
+	color: #333333;
+	padding: 0px;
+	border: 0px;
+}
+.number-query .yt-numberInput:hover{
+	background: none;
+}
+.number-query .yt-numberInput:focus{
+	background-color: #e1ecf6;
+}
+/**
+ * 
+ * C(29)表格内容编辑
+ * 
+ */
+/**
+ * 表格编辑,操作图标样式
+ */
+.heard-handel-model{
+	text-align: right;
+	padding-bottom: 5px;
+}
+.heard-handel-model .left-handle, .heard-handel-model .right-handle{
+    display: inline-block;
+    cursor: pointer;
+}
+.heard-handel-model img {
+    vertical-align: middle;
+    margin-bottom: 3px;
+}
+.heard-handel-model span {
+	color: #418dcc;
+}
+.heard-handel-model .right-handle {
+    margin-left: 25px;
+    display: none;
+}

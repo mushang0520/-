@@ -1,0 +1,192 @@
+<link href="./resources/css/acl/admin-manager.min.css" rel="stylesheet" type="text/css"></link>	
+<link rel="stylesheet" href="./resources/css/TreeGridManage.min.css" type="text/css"></link>
+<link href="./resources/js/dTree/dtree.min.css" rel="stylesheet" type="text/css"></link>	
+<div class="main-nav-content">
+	<div class="top-button-list">
+		<div class="top-button" onselectstart="return false">
+			<button class="fl add-button" acl-code="addMenu"><img class="icon" src="./resources/images/icons/icon-add.png"/>新增</button>
+			<button class="fl update-button" acl-code="updateMenu"><img class="icon" src="./resources/images/icons/icon-edit.png"/>编辑</button>
+			<button class="fl delete-button" acl-code="deleteMenu"><img class="icon" src="./resources/images/icons/icon-del.png"/>删除</button>
+			<button class="fl enable-button" acl-code="enableMenu"><img class="icon" src="./resources/images/icons/icon-enable.png"/>启用</button>
+			<button class="fl disable-button" acl-code="disableMenu"><img class="icon" src="./resources/images/icons/icon-disable.png"/>停用</button>
+			<div style="clear: both;"></div>
+		</div>
+		<table id="position-table-title">
+		</table>
+	</div>
+	<div class="list-content" style="padding-top: 56px;">
+			<!-- 树形列表:开始 -->
+			<div id="auth_list" class="auth_list">
+				
+	        </div>
+			<!-- 树形列表:结束 -->
+	</div>
+</div>
+
+
+<!--
+	作者：姚智荣
+	时间：2017-02-07
+	描述：新增弹出窗口
+-->
+<div id="edit-info" class="yt-pop-model" style="width: 430px;">
+	<div>
+		<div class="model-title" style="height: 40px;">
+			<span class="title-text"></span>
+		</div>
+		<div style="padding: 10px 0 30px 0;overflow: auto;">
+			<form id="edit-menu-info-form">
+				<table class="form-conten">
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>类型：</td>
+						<td>
+							<div class="type-radio" style="line-height: 36px;height: 36px;">
+								<label class="check-label yt-radio"><input id="type-m" type="radio" name="type"  value="0"/>菜单</label>
+								<label class="check-label yt-radio"><input type="radio" name="type"  value="1"/>功能</label>
+							</div>
+							<div class="type-text" style="line-height: 36px;height: 36px;">
+								菜单
+							</div>
+							
+						</td>
+					</tr>
+					<tr>
+						<td><div class="form-label">图标：</div></td>
+						<td>
+							<div class="input-button icon-manager manager-button" style="position: relative;">
+								<input type="file" style="width: 208px;height: 34px;" id="file-m" class="file-button" value="" name="file" />
+								<input type="hidden" value="" name="logoUrl"/>
+								<div class="icon-pop-model-button manager-button-text  clear-html" ></div>
+							</div>
+							<div class="msg-text" ></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						</td>
+						<td>
+							<div class="menu-icon">
+							   <img width="30px" height="30px" src="./resources/images/icons/menu-icon-defoult.png"/><img width="20px" height="20px" src="./resources/images/icons/menu-icon-defoult.png"/><img width="15px" height="15px" src="./resources/images/icons/menu-icon-defoult.png"/>
+							</div>
+							<p style="line-height: 30px;"><span style="color: red;">*</span>不超过50Kb，尺寸为30*30像素</p>
+						</td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>权限名称：</td>
+						<td><input type="text" class="input realname clear-val" name="menuName" /><div class="msg-text" ></div></td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>权限代码：</td>
+						<td><input type="text" class="input menuUrl clear-val" name="menuUrl" /><div class="msg-text" ></div></td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>上级菜单：</td>
+						<td>
+							
+							<div class="input-button menu-manager manager-button select-button" style="position: relative;">
+								<input type="hidden" class="dept-hinput clear-val" value="" name="parentId" />
+								
+								<div class="dept-pop-model-button manager-button-text show_hide_div clear-html" ></div>
+								<div class="dept-pop-model hide_div" id="showTreearea" >
+									
+								</div>
+							</div>
+							<div class="msg-text"></div>
+						</td>
+					</tr>
+					<tr>
+						<td><div class="form-label"><sub class="valid-flag">*</sub>排序：</div></td>
+						<td><input type="number" class="input menuOrder clear-val" name="menuOrder" /><div class="msg-text" ></div></td>
+					</tr>
+				</table>
+			</form>
+			<form id="edit-fun-info-form">
+				<table class="form-conten">
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>类型：</td>
+						<td>
+							<div class="type-radio" style="line-height: 36px;height: 36px;">
+								<label class="check-label yt-radio"><input type="radio" name="type"  value="0"/>菜单</label>
+								<label class="check-label yt-radio"><input id="type-f" checked="checked" type="radio" name="type"  value="1"/>功能</label>
+							</div>
+							<div class="type-text" style="line-height: 36px;height: 36px;">
+								按钮
+							</div>
+							
+						</td>
+					</tr>
+					<tr>
+						<td><div class="form-label">图标：</div></td>
+						<td>
+							<div class="input-button icon-manager manager-button" style="position: relative;">
+								<input type="hidden" value="" name="logoUrl"/>
+								<input type="file" style="width: 208px;height: 34px;" id="file-f" class="file-button" value="" name="file" />
+								<div class="icon-pop-model-button manager-button-text  clear-html" ></div>
+							</div>
+							<div class="msg-text" ></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						</td>
+						<td>
+							<div class="menu-icon">
+							   <img width="30px" height="30px" src="./resources/images/icons/menu-icon-defoult.png"/><img width="20px" height="20px" src="./resources/images/icons/menu-icon-defoult.png"/><img width="15px" height="15px" src="./resources/images/icons/menu-icon-defoult.png"/>
+							</div>
+							<p style="line-height: 30px;"><span style="color: red;">*</span>不超过50Kb，尺寸为30*30像素</p>
+						</td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>权限名称：</td>
+						<td><input type="text" class="input realname clear-val" name="funcName" /><div class="msg-text" ></div></td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>权限标识：</td>
+						<td><input type="text" class="input identifying clear-val" name="funcCode" /><div class="msg-text" ></div></td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>权限代码：</td>
+						<td><input type="text" class="input menuUrl clear-val" name="funcUrl" /><div class="msg-text" ></div></td>
+					</tr>
+					<tr>
+						<td align="right"><sub class="valid-flag">*</sub>所属菜单：</td>
+						<td>
+							
+							<div class="input-button menu-manager manager-button select-button" style="position: relative;">
+								<input type="hidden" class="dept-hinput clear-val" value="" name="menuId" />
+								
+								<div class="dept-pop-model-button manager-button-text show_hide_div clear-html" ></div>
+								<div class="dept-pop-model hide_div" id="showTreearea-f" >
+									
+								</div>
+							</div>
+							<div class="msg-text"></div>
+						</td>
+					</tr>
+					<tr>
+						<td><div class="form-label">描述：</div></td>
+						<td><input type="text" class="input menuOrder clear-val" name="funcDesc" /><div class="msg-text" ></div></td>
+					</tr>
+				</table>
+			</form>
+			<table class="bottom-btn">
+				<tr>
+					<td><button class="confirm radius5">确定</button></td>
+					<td><button class="cancel radius5">取消</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+</div>
+<script type="text/javascript" src="./resources/js/TreeGrid/TreeGrid.min.js"></script>
+<script type="text/javascript" src="./resources/js/dTree/wtree.js"></script>
+<script type="text/javascript" src="./resources/js/ajaxfile/ajaxfileupload.min.js" ></script>
+<script src="./resources/js/acl/menuManager/menuManager.js" type="text/javascript" charset="utf-8"></script>
+<!--[if lt IE 9 ]>
+<script>
+	$(function (){
+		$('.top-button button,.search-button,.radius5').corner("5px");
+	})
+</script>
+<![endif]-->
